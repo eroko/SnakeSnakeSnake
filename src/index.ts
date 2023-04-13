@@ -1,34 +1,12 @@
 // import styles
 import "./style/index.less";
 
-class Food {
-  // 定义元素所对应的元素
-  element: HTMLElement;
+// import classes
+import Food from "./modules/Food";
+import ScorePanel from "./modules/ScorePanel";
 
-  constructor() {
-    // 获取页面内的food元素，赋值给element
-    this.element = document.getElementById("food")!;
-  }
+const scorePanel = new ScorePanel();
 
-  // get food position
-  get x() {
-    return this.element.offsetLeft;
-  }
-
-  get y() {
-    return this.element.offsetTop;
-  }
-
-  // change food position
-  // 0~290
-  // snake move 10px per step, food pos%10=0
-
-  change() {
-    this.element.style.left = Math.round(Math.random() * 29) * 10 + "px";
-    this.element.style.top = Math.round(Math.random() * 29) * 10 + "px";
-  }
-}
-
-const food = new Food();
-food.change();
-console.log(food.x, food.y);
+setInterval((): void => {
+  scorePanel.addScore();
+}, 100);
