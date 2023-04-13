@@ -2,12 +2,11 @@
 import "./style/index.less";
 
 // import classes
-import Food from "./modules/Food";
-import ScorePanel from "./modules/ScorePanel";
-import Snake from "./modules/Snake";
+import GameControl from "./modules/GameControl";
 
-const scorePanel = new ScorePanel();
+const gameControl = new GameControl();
+gameControl.init();
 
-setInterval((): void => {
-  scorePanel.addScore();
-}, 100);
+// setInterval(() => {
+//   console.log(gameControl.direction);
+// }, 1000);
