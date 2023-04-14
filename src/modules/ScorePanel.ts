@@ -9,7 +9,7 @@ class ScorePanel {
   //limit your max level
   maxLevel: number;
 
-  //
+  // define how much score can up your level
   upScore: number;
 
   constructor(maxLevel: number = 10, upScore: number = 10) {

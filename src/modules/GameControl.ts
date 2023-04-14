@@ -63,12 +63,29 @@ class GameControl {
         break;
     }
 
+    this.checkEatFood(this.snake.x, this.snake.y);
+
     // modify snake pos
-    this.snake.x = x;
-    this.snake.y = y;
+    try {
+      this.snake.x = x;
+      this.snake.y = y;
+    } catch (error) {
+      alert(error.message);
+      this.alive = false;
+    }
 
     this.alive &&
       setTimeout(this.run.bind(this), 1000 - (this.scorePanel.level - 1) * 60);
+  }
+
+  // Check if the snake ate food
+
+  checkEatFood(x: number, y: number): void {
+    if (x === this.food.x && y === this.food.y) {
+      this.food.change();
+      this.scorePanel.addScore();
+      this.snake.addBody();
+    }
   }
 }
 
