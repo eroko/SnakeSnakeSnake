@@ -75,7 +75,7 @@ class GameControl {
     }
 
     this.alive &&
-      setTimeout(this.run.bind(this), 1000 - (this.scorePanel.level - 1) * 60);
+      setTimeout(this.run.bind(this), 500 - (this.scorePanel.level - 1) * 30);
   }
 
   // Check if the snake ate food
